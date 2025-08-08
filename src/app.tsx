@@ -7,7 +7,7 @@ export function App() {
   return (
     <>
       <TopBar />
-      <div className="app-content">App</div>
+      <div className="app-content"></div>
       <Dash />
     </>
   )

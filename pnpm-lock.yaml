@@ -17,6 +17,9 @@ importers:
       preact:
         specifier: ^10.27.0
         version: 10.27.0
+      react-winbox:
+        specifier: ^1.5.0
+        version: 1.5.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
     devDependencies:
       '@preact/preset-vite':
         specifier: ^2.10.2
@@ -579,6 +582,17 @@ packages:
   preact@10.27.0:
     resolution: {integrity: sha512-/DTYoB6mwwgPytiqQTh/7SFRL98ZdiD8Sk8zIUVOxtwq4oWcwrcd1uno9fE/zZmUaUrFNYzbH14CPebOz9tZQw==}
 
+  react-dom@19.1.1:
+    resolution: {integrity: sha512-Dlq/5LAZgF0Gaz6yiqZCf6VCcZs1ghAJyrsu84Q/GT0gV+mCxbfmKNoGRKBYMJ8IEdGPqu49YWXD02GCknEDkw==}
+    peerDependencies:
+      react: ^19.1.1
+
+  react-winbox@1.5.0:
+    resolution: {integrity: sha512-8QaLrw+y5M7KO1vxJXcOtgIijPEpAm0qy/cAZhR0ZU/x5uiqCOy7QzIjr8whHLYKQWfl9YotnwDxv9FVL64l2w==}
+    peerDependencies:
+      react: '>=16.14.0'
+      react-dom: '>=16.14.0'
+
   react@19.1.1:
     resolution: {integrity: sha512-w8nqGImo45dmMIfljjMwOGtbmC/mk4CMYhWIicdSflH91J9TyCyczcPFXJzrZ/ZXcgGRFeP6BU0BEJTw6tZdfQ==}
     engines: {node: '>=0.10.0'}
@@ -587,6 +601,9 @@ packages:
     resolution: {integrity: sha512-WMmLFI+Boh6xbop+OAGo9cQ3OgX9MIg7xOQjn+pTCwOkk+FNDAeAemXkJ3HzDJrVXleLOFVa1ipuc1AmEx1Dwg==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
+
+  scheduler@0.26.0:
+    resolution: {integrity: sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==}
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -666,6 +683,9 @@ packages:
         optional: true
       yaml:
         optional: true
+
+  winbox@0.2.6:
+    resolution: {integrity: sha512-P/Tqjcf4bA0Hr1lqR1YliQsisV8xf+t56xgCtqWN8Urw9RLonYSVQGYw+qILp9tgkPs1o7e1dsl6dskaS6GudQ==}
 
   yallist@3.1.1:
     resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
@@ -1149,6 +1169,17 @@ snapshots:
 
   preact@10.27.0: {}
 
+  react-dom@19.1.1(react@19.1.1):
+    dependencies:
+      react: 19.1.1
+      scheduler: 0.26.0
+
+  react-winbox@1.5.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+    dependencies:
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
+      winbox: 0.2.6
+
   react@19.1.1: {}
 
   rollup@4.46.2:
@@ -1176,6 +1207,8 @@ snapshots:
       '@rollup/rollup-win32-ia32-msvc': 4.46.2
       '@rollup/rollup-win32-x64-msvc': 4.46.2
       fsevents: 2.3.3
+
+  scheduler@0.26.0: {}
 
   semver@6.3.1: {}
 
@@ -1222,5 +1255,7 @@ snapshots:
       tinyglobby: 0.2.14
     optionalDependencies:
       fsevents: 2.3.3
+
+  winbox@0.2.6: {}
 
   yallist@3.1.1: {}
