@@ -1,0 +1,64 @@
+.dash {
+  position: fixed;
+  display: flex;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 8px;
+  gap: 8px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Desktop: horizontal at bottom center */
+@media (min-width: 768px) {
+  .dash {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+  }
+}
+
+/* Mobile: vertical on left side */
+@media (max-width: 767px) {
+  .dash {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+  }
+}
+
+.dash-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.dash-item:hover {
+  background: var(--hover-bg);
+  transform: scale(1.05);
+}
+
+.dash-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Hide labels on mobile to save space */
+@media (max-width: 767px) {
+  .dash-label {
+    display: none;
+  }
+}
