@@ -16,7 +16,7 @@ function TopBar() {
   }, []);
 
   return (
-    <header className="glass-bg fixed inset-x-0 top-0 z-[1001] flex h-8 items-center justify-between px-4 text-sm font-medium backdrop-blur-sm transition-all duration-[800ms] ease-in-out md:text-base">
+    <header className="glass-bg flex h-8 items-center justify-between px-4 text-sm font-medium backdrop-blur-sm transition-all duration-[800ms] ease-in-out md:text-base">
       <div className="flex flex-1 items-center justify-start">
         <span className="select-none">
           {time.toLocaleDateString("en-US", {

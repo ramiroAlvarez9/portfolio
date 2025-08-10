@@ -6,7 +6,7 @@ function Dash() {
   const [activeItem, setActiveItem] = useState("about");
 
   return (
-    <nav className="fixed left-0 top-1/2 z-[1000] flex -translate-y-1/2 flex-col gap-1 rounded-r-2xl border glass-bg glass-border p-3 shadow-2xl backdrop-blur-xl transition-all duration-300 ease-in-out md:bottom-2 md:left-1/2 md:top-auto md:-translate-x-1/2 md:translate-y-0 md:flex-row md:rounded-2xl md:p-2">
+    <nav className="glass-bg glass-border fixed left-0 top-1/2 z-[1000] flex -translate-y-1/2 flex-col gap-1 rounded-r-2xl border p-3 shadow-2xl backdrop-blur-xl transition-all duration-300 ease-in-out md:bottom-2 md:left-1/2 md:top-auto md:-translate-x-1/2 md:translate-y-0 md:flex-row md:rounded-2xl md:p-2">
       {menuItems.map((item) => {
         const IconComponent = item.icon;
 
@@ -14,8 +14,8 @@ function Dash() {
           <button
             key={item.id}
             className={clsx(
-              "ease relative flex size-12 cursor-pointer flex-col items-center justify-center rounded-lg border-none bg-transparent p-3 transition-all duration-200 hover:scale-110 hover-bg active:scale-95 md:size-14 md:p-4",
-              activeItem === item.id && "scale-105 active-bg",
+              "ease hover-bg relative flex size-12 cursor-pointer flex-col items-center justify-center rounded-lg border-none bg-transparent p-3 transition-all duration-200 hover:scale-110 active:scale-95 md:size-14 md:p-4",
+              activeItem === item.id && "active-bg scale-105",
             )}
             title={item.label}
             type="button"
