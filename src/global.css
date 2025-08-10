@@ -13,9 +13,11 @@
 :root {
   --bg-primary: hsl(231, 57%, 15%);
   --text-primary: white;
-  --glass-bg: rgba(0, 0, 0, 0.1);
-  --glass-border: rgba(0, 0, 0, 0.2);
-  --hover-bg: rgba(0, 0, 0, 0.2);
+  --glass-bg: rgba(0, 0, 0, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --hover-bg: rgba(255, 255, 255, 0.2);
+  --active-bg: rgba(255, 255, 255, 0.3);
+  --indicator-bg: rgba(255, 255, 255, 0.9);
   --wallpaper-base: url("./assets/blobs-d.svg");
   --wallpaper-overlay: url("./assets/blobs-l.svg");
   --wallpaper-overlay-opacity: 0;
@@ -24,9 +26,11 @@
 :root[data-theme="light"] {
   --bg-primary: hsl(0, 0%, 95%);
   --text-primary: hsl(0, 0%, 10%);
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --hover-bg: rgba(255, 255, 255, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --hover-bg: rgba(0, 0, 0, 0.1);
+  --active-bg: rgba(0, 0, 0, 0.2);
+  --indicator-bg: rgba(0, 0, 0, 0.8);
   --wallpaper-overlay-opacity: 1;
 }
 
@@ -58,4 +62,25 @@
   opacity: var(--wallpaper-overlay-opacity);
   transition: opacity 0.8s ease-in-out;
   z-index: -1;
+}
+
+.glass-bg {
+  background-color: var(--glass-bg);
+  color: var(--text-primary);
+}
+
+.glass-border {
+  border-color: var(--glass-border);
+}
+
+.hover-bg:hover {
+  background-color: var(--hover-bg);
+}
+
+.active-bg {
+  background-color: var(--active-bg);
+}
+
+.indicator-bg {
+  background-color: var(--indicator-bg);
 }

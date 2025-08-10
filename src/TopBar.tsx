@@ -20,7 +20,7 @@ function TopBar() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-[1001] flex h-8 items-center justify-between bg-black/80 px-4 text-sm font-medium text-white backdrop-blur-sm transition-all duration-[800ms] ease-in-out md:text-base">
+    <header className="fixed inset-x-0 top-0 z-[1001] flex h-8 items-center justify-between glass-bg px-4 text-sm font-medium backdrop-blur-sm transition-all duration-[800ms] ease-in-out md:text-base">
       <div className="flex flex-1 items-center justify-start">
         <span className="select-none">
           {time.toLocaleDateString("en-US", {
@@ -43,7 +43,7 @@ function TopBar() {
 
       <div className="flex flex-1 items-center justify-end">
         <button
-          className="ease flex cursor-pointer items-center justify-center rounded-md border-none bg-transparent p-1.5 text-white transition-all duration-300 hover:bg-white/20"
+          className="ease flex cursor-pointer items-center justify-center rounded-md border-none bg-transparent p-1.5 transition-all duration-300 hover-bg"
           title={isDark ? "Switch to light mode" : "Switch to dark mode"}
           onClick={() => {
             const newTheme = isDark ? "light" : "dark";
