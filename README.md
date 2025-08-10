@@ -43,8 +43,9 @@ pnpm preview
 ## 🎨 Theme System
 
 The portfolio features a dual-theme system with:
+
 - Smooth wallpaper crossfade transitions
-- Adaptive glass morphism effects  
+- Adaptive glass morphism effects
 - Theme-aware UI components
 - CSS variables for consistent theming
 

@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Adwaita";
+  src: url("./assets/AdwaitaSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg-primary: hsl(231, 57%, 15%);
+  --text-primary: white;
+  --glass-bg: rgba(0, 0, 0, 0.1);
+  --glass-border: rgba(0, 0, 0, 0.2);
+  --hover-bg: rgba(0, 0, 0, 0.2);
+  --wallpaper-base: url("./assets/blobs-d.svg");
+  --wallpaper-overlay: url("./assets/blobs-l.svg");
+  --wallpaper-overlay-opacity: 0;
+}
+
+:root[data-theme="light"] {
+  --bg-primary: hsl(0, 0%, 95%);
+  --text-primary: hsl(0, 0%, 10%);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --hover-bg: rgba(255, 255, 255, 0.2);
+  --wallpaper-overlay-opacity: 1;
+}
+
+#app {
+  font-family:
+    "Adwaita",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background:
+    var(--wallpaper-base) center / cover no-repeat,
+    var(--bg-primary);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  transition: all 0.8s ease-in-out;
+  position: relative;
+}
+
+#app::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--wallpaper-overlay) center / cover no-repeat;
+  opacity: var(--wallpaper-overlay-opacity);
+  transition: opacity 0.8s ease-in-out;
+  z-index: -1;
+}
