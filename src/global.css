@@ -40,15 +40,25 @@
     system-ui,
     -apple-system,
     sans-serif;
-  background:
-    var(--wallpaper-base) center / cover no-repeat,
-    var(--bg-primary);
-  color: var(--text-primary);
   margin: 0;
   padding: 0;
   height: 100vh;
   transition: all 0.8s ease-in-out;
   position: relative;
+}
+
+:root #app {
+  background:
+    var(--wallpaper-base) center / cover no-repeat,
+    var(--bg-primary);
+  color: var(--text-primary);
+}
+
+:root[data-theme="light"] #app {
+  background:
+    var(--wallpaper-overlay) center / cover no-repeat,
+    var(--bg-primary);
+  color: var(--text-primary);
 }
 
 #app::before {

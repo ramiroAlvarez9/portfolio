@@ -6,11 +6,7 @@ function TopBar() {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme) {
-      setIsDark(savedTheme === "dark");
-    }
+    document.documentElement.setAttribute("data-theme", "dark");
 
     const timer = setInterval(() => {
       setTime(new Date());
@@ -20,7 +16,7 @@ function TopBar() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-[1001] flex h-8 items-center justify-between glass-bg px-4 text-sm font-medium backdrop-blur-sm transition-all duration-[800ms] ease-in-out md:text-base">
+    <header className="glass-bg fixed inset-x-0 top-0 z-[1001] flex h-8 items-center justify-between px-4 text-sm font-medium backdrop-blur-sm transition-all duration-[800ms] ease-in-out md:text-base">
       <div className="flex flex-1 items-center justify-start">
         <span className="select-none">
           {time.toLocaleDateString("en-US", {
@@ -43,13 +39,12 @@ function TopBar() {
 
       <div className="flex flex-1 items-center justify-end">
         <button
-          className="ease flex cursor-pointer items-center justify-center rounded-md border-none bg-transparent p-1.5 transition-all duration-300 hover-bg"
+          className="ease hover-bg flex cursor-pointer items-center justify-center rounded-md border-none bg-transparent p-1.5 transition-all duration-300"
           title={isDark ? "Switch to light mode" : "Switch to dark mode"}
           onClick={() => {
             const newTheme = isDark ? "light" : "dark";
 
             document.documentElement.setAttribute("data-theme", newTheme);
-            localStorage.setItem("theme", newTheme);
             setIsDark(!isDark);
           }}
         >
