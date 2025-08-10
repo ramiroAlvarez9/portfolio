@@ -1,6 +1,6 @@
 import { User, SquareTerminal, Briefcase, Mail } from "lucide-react";
 import { useState } from "preact/hooks";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
 function Dash() {
   const [activeItem, setActiveItem] = useState("about");
@@ -21,7 +21,6 @@ function Dash() {
             type="button"
             onClick={() => {
               setActiveItem(item.id);
-              console.log(`Clicked: ${item.id}`);
             }}
           >
             <IconComponent size={34} />

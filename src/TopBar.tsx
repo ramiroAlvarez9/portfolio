@@ -6,8 +6,6 @@ function TopBar() {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", "dark");
-
     const timer = setInterval(() => {
       setTime(new Date());
     }, 1000);
