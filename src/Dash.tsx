@@ -2,32 +2,44 @@ import { User, SquareTerminal, Briefcase, Mail } from "lucide-react";
 import { useState } from "preact/hooks";
 import { clsx } from "clsx";
 
+import { useWindowStore } from "./store/windowStore";
+
 function Dash() {
   const [activeItem, setActiveItem] = useState("about");
+  const { setWindow, windows } = useWindowStore();
 
   return (
     <nav className="glass-bg glass-border fixed left-0 top-1/2 z-[1000] flex -translate-y-1/2 flex-col gap-1 rounded-r-2xl border p-3 shadow-2xl backdrop-blur-xl transition-all duration-300 ease-in-out md:bottom-2 md:left-1/2 md:top-auto md:-translate-x-1/2 md:translate-y-0 md:flex-row md:rounded-2xl md:p-2">
       {menuItems.map((item) => {
         const IconComponent = item.icon;
+        const isWindowOpen = windows.some((window) => window.id === item.id);
 
         return (
           <button
             key={item.id}
             className={clsx(
               "ease hover-bg relative flex size-12 cursor-pointer flex-col items-center justify-center rounded-lg border-none bg-transparent p-3 transition-all duration-200 hover:scale-110 active:scale-95 md:size-14 md:p-4",
-              activeItem === item.id && "active-bg scale-105",
+              isWindowOpen && "active-bg scale-105",
             )}
             title={item.label}
             type="button"
             onClick={() => {
               setActiveItem(item.id);
+              setWindow({
+                id: item.id,
+                title: item.label,
+                x: 100,
+                y: 100,
+                width: 600,
+                height: 400,
+              });
             }}
           >
             <IconComponent size={34} />
             <div
               className={clsx(
                 "ease absolute right-0 h-4 w-1 rounded-full transition-all duration-200 md:bottom-0 md:right-auto md:h-1 md:w-4",
-                activeItem === item.id ? "indicator-bg" : "bg-transparent",
+                isWindowOpen ? "indicator-bg" : "bg-transparent",
               )}
             />
           </button>

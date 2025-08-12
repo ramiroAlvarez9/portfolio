@@ -11,13 +11,23 @@
 }
 
 :root {
-  --bg-primary: hsl(231, 57%, 15%);
+  --bg-primary: hsl(0, 0%, 10%);
+  --bg-secondary: hsl(0, 0%, 15%);
+  --bg-tertiary: hsl(0, 0%, 20%);
   --text-primary: white;
-  --glass-bg: rgba(0, 0, 0, 0.8);
+  --text-secondary: hsl(0, 0%, 70%);
+  --window-text: white;
+  --glass-bg: rgba(0, 0, 0, 0.2);
   --glass-border: rgba(255, 255, 255, 0.1);
+  --window-bg: hsl(0, 0%, 8%);
+  --window-secondary: hsl(0, 0%, 12%);
+  --window-tertiary: hsl(0, 0%, 16%);
   --hover-bg: rgba(255, 255, 255, 0.2);
   --active-bg: rgba(255, 255, 255, 0.3);
   --indicator-bg: rgba(255, 255, 255, 0.9);
+  --danger-color: hsl(0, 70%, 50%);
+  --danger-text: white;
+  --shadow-window: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
   --wallpaper-base: url("./assets/blobs-d.svg");
   --wallpaper-overlay: url("./assets/blobs-l.svg");
   --wallpaper-overlay-opacity: 0;
@@ -25,12 +35,21 @@
 
 :root[data-theme="light"] {
   --bg-primary: hsl(0, 0%, 95%);
-  --text-primary: hsl(0, 0%, 10%);
-  --glass-bg: rgba(255, 255, 255, 0.8);
+  --bg-secondary: hsl(0, 0%, 90%);
+  --bg-tertiary: hsl(0, 0%, 85%);
+  --text-secondary: hsl(0, 0%, 30%);
+  --window-text: hsl(0, 0%, 20%);
+  --glass-bg: rgba(255, 255, 255, 0.2);
   --glass-border: rgba(0, 0, 0, 0.1);
+  --window-bg: hsl(0, 0%, 98%);
+  --window-secondary: hsl(0, 0%, 92%);
+  --window-tertiary: hsl(0, 0%, 88%);
   --hover-bg: rgba(0, 0, 0, 0.1);
   --active-bg: rgba(0, 0, 0, 0.2);
   --indicator-bg: rgba(0, 0, 0, 0.8);
+  --danger-color: hsl(0, 70%, 50%);
+  --danger-text: white;
+  --shadow-window: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
   --wallpaper-overlay-opacity: 1;
 }
 
