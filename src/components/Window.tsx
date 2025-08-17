@@ -8,29 +8,40 @@ type WindowProps = {
   children: ComponentChildren;
 };
 
+export const getBrowserWindow = () => {
+  return globalThis.window;
+};
+
 export function Window({ window, children }: WindowProps) {
-  const { deleteWindow, updateWindow, minimizeWindow } = useWindowStore();
+  const { deleteWindow, minimizeWindow, maximizeWindow, restoreFromMaximize, updateWindow } = useWindowStore();
+
+  const browserWindow = getBrowserWindow();
 
   return (
     <Rnd
       key={window.id}
-      className="rounded-lg border border-[var(--glass-border)] bg-[var(--window-bg)] shadow-[var(--shadow-window)] transition-all duration-200 ease-in-out"
-      default={{
-        x: window.x,
-        y: window.y,
-        width: window.width,
-        height: window.height,
-      }}
+      bounds="body"
+      className="rounded-lg border border-[var(--glass-border)] bg-[var(--window-bg)] shadow-[var(--shadow-window)]"
       dragHandleClassName="gnome-titlebar"
-      onDragStop={(e, d) => {
-        updateWindow(window.id, { x: d.x, y: d.y });
+      minHeight={200}
+      minWidth={300}
+      position={{ x: window.x, y: window.y }}
+      size={{ width: window.width, height: window.height }}
+      style={{
+        transition:
+          window.isMaximized || window.isTransitioning
+            ? "width 0.3s ease-in-out, height 0.3s ease-in-out, transform 0.3s ease-in-out"
+            : "none",
       }}
-      onResizeStop={(e, direction, ref, delta, position) => {
+      onDrag={(e, data) => {
+        updateWindow(window.id, { x: data.x, y: data.y });
+      }}
+      onResize={(e, direction, ref, delta, position) => {
         updateWindow(window.id, {
-          x: position.x,
-          y: position.y,
           width: parseInt(ref.style.width),
           height: parseInt(ref.style.height),
+          x: position.x,
+          y: position.y,
         });
       }}
     >
@@ -39,17 +50,22 @@ export function Window({ window, children }: WindowProps) {
           <div className="w-16" />
           <div className="text-sm font-medium text-[var(--window-text)]">{window.title}</div>
           <div className="flex items-center space-x-1">
-            <button 
-              className="flex h-6 w-8 items-center justify-center text-xs font-bold text-[var(--text-secondary)] hover:bg-[var(--window-tertiary)]"
+            <button
+              className="flex h-6 w-8 items-center justify-center text-xs font-bold text-[var(--text-secondary)] lg:hover:bg-[var(--window-tertiary)]"
               onClick={() => minimizeWindow(window.id)}
             >
               −
             </button>
-            <button className="flex size-6 items-center justify-center text-xs font-bold text-[var(--text-secondary)] hover:bg-[var(--window-tertiary)]">
-              □
+            <button
+              className="flex size-6 items-center justify-center text-xs font-bold text-[var(--text-secondary)] lg:hover:bg-[var(--window-tertiary)]"
+              onClick={() =>
+                window.isMaximized ? restoreFromMaximize(window.id) : maximizeWindow(window.id, browserWindow)
+              }
+            >
+              {window.isMaximized ? "❐" : "□"}
             </button>
             <button
-              className="flex h-6 w-8 items-center justify-center text-xs font-bold text-[var(--text-secondary)] hover:bg-[var(--danger-color)] hover:text-[var(--danger-text)]"
+              className="flex h-6 w-8 items-center justify-center text-xs font-bold text-[var(--text-secondary)] lg:hover:bg-[var(--danger-color)] lg:hover:text-[var(--danger-text)]"
               onClick={() => deleteWindow(window.id)}
             >
               ✕

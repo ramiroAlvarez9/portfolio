@@ -10,11 +10,20 @@ export function App() {
     <>
       <TopBar />
       <div className="h-[calc(100vh-2rem)] w-full">
-        {windows
-          .filter((window) => !window.isMinimized)
-          .map((window) => (
-            <Window key={window.id} window={window} />
-          ))}
+        {windows.map((window) => {
+          return (
+            <div
+              key={window.id}
+              className={`transition-[opacity,transform] duration-300 ease-in-out ${
+                window.isMinimized
+                  ? "pointer-events-none translate-y-full scale-0 opacity-0"
+                  : "translate-y-0 scale-100 opacity-100"
+              }`}
+            >
+              <Window window={window}>{window.title}</Window>
+            </div>
+          );
+        })}
       </div>
       <Dash />
     </>

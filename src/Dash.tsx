@@ -5,7 +5,7 @@ import { clsx } from "clsx";
 import { useWindowStore } from "./store/windowStore";
 
 function Dash() {
-  const [activeItem, setActiveItem] = useState("about");
+  const [, setActiveItem] = useState("about");
   const { setWindow, windows, restoreWindow } = useWindowStore();
 
   return (
@@ -34,6 +34,11 @@ function Dash() {
                 setWindow({
                   id: item.id,
                   title: item.label,
+                  prevHeight: undefined,
+                  prevWidth: undefined,
+                  prevX: 100,
+                  prevY: 0,
+                  isMaximized: false,
                   x: 100,
                   y: 100,
                   width: 600,

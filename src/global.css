@@ -53,6 +53,10 @@
   --wallpaper-overlay-opacity: 1;
 }
 
+body {
+  overflow: hidden;
+}
+
 #app {
   font-family:
     "Adwaita",
@@ -112,4 +116,8 @@
 
 .indicator-bg {
   background-color: var(--indicator-bg);
+}
+
+.gnome-titlebar {
+  cursor: move;
 }
