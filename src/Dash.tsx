@@ -6,42 +6,52 @@ import { useWindowStore } from "./store/windowStore";
 
 function Dash() {
   const [activeItem, setActiveItem] = useState("about");
-  const { setWindow, windows } = useWindowStore();
+  const { setWindow, windows, restoreWindow } = useWindowStore();
 
   return (
     <nav className="glass-bg glass-border fixed left-0 top-1/2 z-[1000] flex -translate-y-1/2 flex-col gap-1 rounded-r-2xl border p-3 shadow-2xl backdrop-blur-xl transition-all duration-300 ease-in-out md:bottom-2 md:left-1/2 md:top-auto md:-translate-x-1/2 md:translate-y-0 md:flex-row md:rounded-2xl md:p-2">
       {menuItems.map((item) => {
         const IconComponent = item.icon;
-        const isWindowOpen = windows.some((window) => window.id === item.id);
+        const windowInstance = windows.find((window) => window.id === item.id);
+        const isWindowOpen = !!windowInstance;
+        const isMinimized = windowInstance?.isMinimized;
 
         return (
           <button
             key={item.id}
             className={clsx(
               "ease hover-bg relative flex size-12 cursor-pointer flex-col items-center justify-center rounded-lg border-none bg-transparent p-3 transition-all duration-200 hover:scale-110 active:scale-95 md:size-14 md:p-4",
-              isWindowOpen && "active-bg scale-105",
+              isWindowOpen && !isMinimized && "active-bg scale-105",
+              isMinimized && "active-bg scale-95 opacity-75",
             )}
             title={item.label}
             type="button"
             onClick={() => {
               setActiveItem(item.id);
-              setWindow({
-                id: item.id,
-                title: item.label,
-                x: 100,
-                y: 100,
-                width: 600,
-                height: 400,
-              });
+              if (isMinimized) {
+                restoreWindow(item.id);
+              } else {
+                setWindow({
+                  id: item.id,
+                  title: item.label,
+                  x: 100,
+                  y: 100,
+                  width: 600,
+                  height: 400,
+                });
+              }
             }}
           >
             <IconComponent size={34} />
             <div
               className={clsx(
                 "ease absolute right-0 h-4 w-1 rounded-full transition-all duration-200 md:bottom-0 md:right-auto md:h-1 md:w-4",
-                isWindowOpen ? "indicator-bg" : "bg-transparent",
+                isWindowOpen && !isMinimized ? "indicator-bg" : "bg-transparent",
               )}
             />
+            {isMinimized && (
+              <div className="absolute -bottom-1 -right-1 size-3 rounded-full bg-orange-500 md:-bottom-1 md:-right-1" />
+            )}
           </button>
         );
       })}

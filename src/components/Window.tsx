@@ -9,12 +9,12 @@ type WindowProps = {
 };
 
 export function Window({ window, children }: WindowProps) {
-  const { deleteWindow, updateWindow } = useWindowStore();
+  const { deleteWindow, updateWindow, minimizeWindow } = useWindowStore();
 
   return (
     <Rnd
       key={window.id}
-      className="rounded-lg border border-[var(--glass-border)] bg-[var(--window-bg)] shadow-[var(--shadow-window)]"
+      className="rounded-lg border border-[var(--glass-border)] bg-[var(--window-bg)] shadow-[var(--shadow-window)] transition-all duration-200 ease-in-out"
       default={{
         x: window.x,
         y: window.y,
@@ -39,7 +39,10 @@ export function Window({ window, children }: WindowProps) {
           <div className="w-16" />
           <div className="text-sm font-medium text-[var(--window-text)]">{window.title}</div>
           <div className="flex items-center space-x-1">
-            <button className="flex h-6 w-8 items-center justify-center text-xs font-bold text-[var(--text-secondary)] hover:bg-[var(--window-tertiary)]">
+            <button 
+              className="flex h-6 w-8 items-center justify-center text-xs font-bold text-[var(--text-secondary)] hover:bg-[var(--window-tertiary)]"
+              onClick={() => minimizeWindow(window.id)}
+            >
               −
             </button>
             <button className="flex size-6 items-center justify-center text-xs font-bold text-[var(--text-secondary)] hover:bg-[var(--window-tertiary)]">

@@ -18,6 +18,8 @@ type WindowStore = {
   updateWindow: (id: string, updates: Partial<WindowData>) => void;
   deleteWindow: (id: string) => void;
   deleteAllWindows: () => void;
+  minimizeWindow: (id: string) => void;
+  restoreWindow: (id: string) => void;
 };
 
 export const useWindowStore = create<WindowStore>((set) => ({
@@ -45,5 +47,19 @@ export const useWindowStore = create<WindowStore>((set) => ({
   deleteAllWindows: () =>
     set(() => ({
       windows: [],
+    })),
+
+  minimizeWindow: (id: string) =>
+    set((state) => ({
+      windows: state.windows.map((window) =>
+        window.id === id ? { ...window, isMinimized: true } : window
+      ),
+    })),
+
+  restoreWindow: (id: string) =>
+    set((state) => ({
+      windows: state.windows.map((window) =>
+        window.id === id ? { ...window, isMinimized: false } : window
+      ),
     })),
 }));

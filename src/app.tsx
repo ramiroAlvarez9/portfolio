@@ -10,9 +10,11 @@ export function App() {
     <>
       <TopBar />
       <div className="h-[calc(100vh-2rem)] w-full">
-        {windows.map((window) => (
-          <Window key={window.id} window={window} />
-        ))}
+        {windows
+          .filter((window) => !window.isMinimized)
+          .map((window) => (
+            <Window key={window.id} window={window} />
+          ))}
       </div>
       <Dash />
     </>
