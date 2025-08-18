@@ -123,3 +123,40 @@ body {
 .gnome-titlebar {
   cursor: move;
 }
+
+/* GNOME-style scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 4px;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary);
+  opacity: 0.8;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--text-primary);
+  opacity: 1;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Firefox scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-secondary) transparent;
+}

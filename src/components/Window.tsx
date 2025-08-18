@@ -23,8 +23,8 @@ export function Window({ window, children }: WindowProps) {
       bounds="body"
       className="rounded-lg border border-[var(--glass-border)] bg-[var(--window-bg)] shadow-[var(--shadow-window)]"
       dragHandleClassName="gnome-titlebar"
-      minHeight={200}
-      minWidth={300}
+      minHeight={800}
+      minWidth={700}
       position={{ x: window.x, y: window.y }}
       size={{ width: window.width, height: window.height }}
       style={{
@@ -72,7 +72,7 @@ export function Window({ window, children }: WindowProps) {
             </button>
           </div>
         </div>
-        <div className="flex-1 p-4 text-[var(--window-text)]">{children}</div>
+        <div className="flex-1 overflow-y-auto p-4 text-[var(--window-text)]">{children}</div>
       </div>
     </Rnd>
   );
