@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx,vue}", // Adjust based on your project structure
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "window-content": "var(--window-content)",
+      },
+    },
   },
   plugins: [],
 };
