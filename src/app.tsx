@@ -20,7 +20,7 @@ export function App() {
                   : "translate-y-0 scale-100 opacity-100"
               }`}
             >
-              <Window window={window}>{window.title}</Window>
+              <Window window={window}>{window.content}</Window>
             </div>
           );
         })}

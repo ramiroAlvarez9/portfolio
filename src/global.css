@@ -31,6 +31,7 @@
   --wallpaper-base: url("./assets/blobs-d.svg");
   --wallpaper-overlay: url("./assets/blobs-l.svg");
   --wallpaper-overlay-opacity: 0;
+  --window-content: white;
 }
 
 :root[data-theme="light"] {
@@ -51,6 +52,7 @@
   --danger-text: white;
   --shadow-window: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
   --wallpaper-overlay-opacity: 1;
+  --window-content: black;
 }
 
 body {

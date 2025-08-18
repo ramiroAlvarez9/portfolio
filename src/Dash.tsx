@@ -3,10 +3,26 @@ import { useState } from "preact/hooks";
 import { clsx } from "clsx";
 
 import { useWindowStore } from "./store/windowStore";
+import { AboutSection, ProjectsSection, ExperienceSection, ContactSection } from "./components/ProfileSections";
 
 function Dash() {
   const [, setActiveItem] = useState("about");
   const { setWindow, windows, restoreWindow } = useWindowStore();
+
+  const getWindowContent = (id: string) => {
+    switch (id) {
+      case "about":
+        return <AboutSection />;
+      case "projects":
+        return <ProjectsSection />;
+      case "experience":
+        return <ExperienceSection />;
+      case "contact":
+        return <ContactSection />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <nav className="glass-bg glass-border fixed left-0 top-1/2 z-[1000] flex -translate-y-1/2 flex-col gap-1 rounded-r-2xl border p-3 shadow-2xl backdrop-blur-xl transition-all duration-300 ease-in-out md:bottom-2 md:left-1/2 md:top-auto md:-translate-x-1/2 md:translate-y-0 md:flex-row md:rounded-2xl md:p-2">
@@ -34,6 +50,7 @@ function Dash() {
                 setWindow({
                   id: item.id,
                   title: item.label,
+                  content: getWindowContent(item.id),
                   prevHeight: undefined,
                   prevWidth: undefined,
                   prevX: 100,
@@ -41,8 +58,8 @@ function Dash() {
                   isMaximized: false,
                   x: 100,
                   y: 100,
-                  width: 600,
-                  height: 400,
+                  width: 1200,
+                  height: 720,
                 });
               }
             }}
