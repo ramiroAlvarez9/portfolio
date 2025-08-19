@@ -19,25 +19,28 @@ export function AboutSection() {
 
       <div className="space-y-4">
         <p className="leading-relaxed text-window-content opacity-75">
-          Full-stack developer with expertise in modern web technologies and React ecosystem. Specialized in TypeScript and React.js, with experience building scalable full-stack applications using cutting-edge tools.
+          Full-stack developer with expertise in modern web technologies and React ecosystem. Specialized in TypeScript
+          and React.js, with experience building scalable full-stack applications using cutting-edge tools.
         </p>
 
-        <div className="mt-6 space-y-4">
+        <div className="mt-6 space-y-4 text-window-content">
           <div className="glass-bg rounded-lg p-4">
-            <h3 className="mb-2 font-semibold">Frontend</h3>
+            <h3 className="mb-2 font-semibold text-window-content">Frontend</h3>
             <p className="text-sm text-window-content opacity-75">React.js, TypeScript, Tailwind CSS</p>
           </div>
-          <div className="glass-bg rounded-lg p-4">
-            <h3 className="mb-2 font-semibold">Full-Stack</h3>
+          <div className="glass-bg rounded-lg p-4 text-window-content">
+            <h3 className="mb-2 font-semibold text-window-content">Full-Stack</h3>
             <p className="text-sm text-window-content opacity-75">Remix, SQL, Cloudflare</p>
           </div>
           <div className="glass-bg rounded-lg p-4">
-            <h3 className="mb-2 font-semibold">Backend</h3>
+            <h3 className="mb-2 font-semibold text-window-content">Backend</h3>
             <p className="text-sm text-window-content opacity-75">Node.js, RESTful APIs, database design</p>
           </div>
           <div className="glass-bg rounded-lg p-4">
-            <h3 className="mb-2 font-semibold">Additional</h3>
-            <p className="text-sm text-window-content opacity-75">Rust (experimental projects), real-time audio processing</p>
+            <h3 className="mb-2 font-semibold text-window-content">Additional</h3>
+            <p className="text-sm text-window-content opacity-75">
+              Rust (experimental projects), real-time audio processing
+            </p>
           </div>
         </div>
       </div>
@@ -49,28 +52,32 @@ export function ProjectsSection() {
   const personalProjects = [
     {
       title: "🎵 Audio Pitch Detector",
-      description: "A browser-based musical note detector that analyzes audio input in real-time to identify pitch and musical notes with accurate pitch detection algorithms.",
+      description:
+        "A browser-based musical note detector that analyzes audio input in real-time to identify pitch and musical notes with accurate pitch detection algorithms.",
       tech: ["JavaScript", "Web Audio API", "Real-time Processing"],
       status: "Completed",
       github: "https://github.com/ramiroAlvarez9/detect-audio-pitch",
     },
     {
       title: "⚽ Soccer Players Backend",
-      description: "Backend API for managing soccer player data with comprehensive scoring and statistics system, featuring scalable architecture and data validation.",
+      description:
+        "Backend API for managing soccer player data with comprehensive scoring and statistics system, featuring scalable architecture and data validation.",
       tech: ["TypeScript", "Node.js", "RESTful API"],
       status: "Completed",
       github: "https://github.com/ramiroAlvarez9/soccer-players-be",
     },
     {
       title: "🔗 ShortLink Service",
-      description: "Complete URL shortening service with modern React frontend and high-performance Rust backend for fast URL processing and scalable architecture.",
+      description:
+        "Complete URL shortening service with modern React frontend and high-performance Rust backend for fast URL processing and scalable architecture.",
       tech: ["TypeScript", "React", "Rust", "Database Integration"],
       status: "Completed",
       github: "https://github.com/ramiroAlvarez9/shortlink-front",
     },
     {
       title: "🌐 BCN-Tec Frontend",
-      description: "Modern web application frontend built with React patterns and TypeScript for enhanced type safety and component-based architecture.",
+      description:
+        "Modern web application frontend built with React patterns and TypeScript for enhanced type safety and component-based architecture.",
       tech: ["TypeScript", "React.js", "Modern UI Components"],
       status: "Completed",
       github: "https://github.com/ramiroAlvarez9/bcn-tec-frontend",
@@ -80,21 +87,24 @@ export function ProjectsSection() {
   const professionalProjects = [
     {
       title: "💼 Morfar - Restaurant Menu Management",
-      description: "Complete menu handling solution for restaurants with integrated CMS functionality. Developed critical features for product image management and database seeding systems.",
+      description:
+        "Complete menu handling solution for restaurants with integrated CMS functionality. Developed critical features for product image management and database seeding systems.",
       tech: ["React (Remix)", "Tailwind CSS", "SQLite", "Cloudflare"],
       status: "Completed",
       github: "https://github.com/ramiroAlvarez9/morfar",
     },
     {
       title: "🏢 FirstClose MVP & New Product",
-      description: "Co-developed MVP from conception to deployment, currently building new product features with monthly stakeholder presentations and cross-functional team collaboration.",
+      description:
+        "Co-developed MVP from conception to deployment, currently building new product features with monthly stakeholder presentations and cross-functional team collaboration.",
       tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Zod", "TanStack Query"],
       status: "In Development",
       github: null,
     },
     {
       title: "📱 DigitalMeri Web Application",
-      description: "Next.js full-stack development with focus on API integration and content management. Implemented Contentful API setup and data integration.",
+      description:
+        "Next.js full-stack development with focus on API integration and content management. Implemented Contentful API setup and data integration.",
       tech: ["Next.js", "TypeScript", "Contentful CMS"],
       status: "Completed",
       github: null,
@@ -116,20 +126,17 @@ export function ProjectsSection() {
       <p className="mb-4 text-sm text-window-content opacity-75">{project.description}</p>
       <div className="mb-3 flex flex-wrap gap-2">
         {project.tech.map((tech: string, techIndex: number) => (
-          <span
-            key={techIndex}
-            className="rounded bg-gray-700/50 px-2 py-1 text-xs text-window-content opacity-75"
-          >
+          <span key={techIndex} className="rounded bg-gray-700/50 px-2 py-1 text-xs text-window-content opacity-75">
             {tech}
           </span>
         ))}
       </div>
       {project.github && (
         <a
-          href={project.github}
-          target="_blank"
-          rel="noopener noreferrer"
           className="flex items-center gap-2 text-sm text-window-content opacity-80 transition-all hover:opacity-100"
+          href={project.github}
+          rel="noopener noreferrer"
+          target="_blank"
         >
           <ExternalLink size={14} />
           View on GitHub
@@ -141,19 +148,15 @@ export function ProjectsSection() {
   return (
     <div className="p-6 text-window-content">
       <h2 className="mb-6 text-xl font-bold">Projects</h2>
-      
+
       <div className="mb-8">
         <h3 className="mb-4 text-lg font-semibold text-window-content">Professional Projects</h3>
-        <div className="space-y-4">
-          {professionalProjects.map(renderProject)}
-        </div>
+        <div className="space-y-4">{professionalProjects.map(renderProject)}</div>
       </div>
 
       <div>
         <h3 className="mb-4 text-lg font-semibold text-window-content">Personal Projects</h3>
-        <div className="space-y-4">
-          {personalProjects.map(renderProject)}
-        </div>
+        <div className="space-y-4">{personalProjects.map(renderProject)}</div>
       </div>
     </div>
   );
@@ -167,7 +170,17 @@ export function ExperienceSection() {
       period: "Oct 2024 - Present",
       description:
         "Co-developed Minimum Viable Product (MVP) from conception to deployment. Currently developing a new company product using React, Vite, and Tailwind CSS. Collaborated with design team to align UI component decisions and coordinated with backend team for API integration. Delivered monthly demos in English to showcase product progress to stakeholders.",
-      skills: ["React", "TypeScript", "Styled Components", "Axios", "Yup", "Vite", "Tailwind CSS", "Zod", "TanStack Query"],
+      skills: [
+        "React",
+        "TypeScript",
+        "Styled Components",
+        "Axios",
+        "Yup",
+        "Vite",
+        "Tailwind CSS",
+        "Zod",
+        "TanStack Query",
+      ],
     },
     {
       title: "Frontend Web Developer",
@@ -271,7 +284,7 @@ export function ContactSection() {
                   <IconComponent className="text-blue-400" size={20} />
                 </div>
                 <div>
-                  <p className="font-medium">{contact.label}</p>
+                  <p className="font-medium text-window-content">{contact.label}</p>
                   <p className="text-sm text-window-content opacity-60">{contact.value}</p>
                 </div>
                 <ExternalLink className="ml-auto text-window-content opacity-60" size={16} />
@@ -285,9 +298,9 @@ export function ContactSection() {
           <p className="mb-4 text-sm text-window-content opacity-75">
             Available for freelance projects and full-time opportunities.
           </p>
-          <a 
+          <a
+            className="block w-full rounded-lg bg-blue-500 px-4 py-2 text-center font-medium text-window-content transition-colors hover:bg-blue-600"
             href="mailto:ramiro.al.alvarez@gmail.com?subject=Contact from Portfolio&body=Hello Ramiro,%0D%0A%0D%0AI'm reaching out regarding..."
-            className="block w-full rounded-lg bg-blue-500 px-4 py-2 font-medium text-center transition-colors hover:bg-blue-600 text-white"
           >
             Send Message
           </a>
