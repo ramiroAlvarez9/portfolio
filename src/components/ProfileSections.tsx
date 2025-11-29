@@ -111,7 +111,16 @@ export function ProjectsSection() {
     },
   ];
 
-  const renderProject = (project, index: number) => (
+  const renderProject = (
+    project: {
+      title: string;
+      description: string;
+      tech: string[];
+      status: string;
+      github: string | null;
+    },
+    index: number,
+  ) => (
     <div key={index} className="glass-bg glass-border rounded-lg border p-5">
       <div className="mb-3 flex items-start justify-between">
         <h3 className="text-lg font-semibold text-window-content">{project.title}</h3>
