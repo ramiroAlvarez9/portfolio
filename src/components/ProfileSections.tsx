@@ -90,7 +90,7 @@ export function ProjectsSection() {
       description:
         "Complete menu handling solution for restaurants with integrated CMS functionality. Developed critical features for product image management and database seeding systems.",
       tech: ["React (Remix)", "Tailwind CSS", "SQLite", "Cloudflare"],
-      status: "Completed",
+      status: "In Development",
       github: "https://github.com/ramiroAlvarez9/morfar",
     },
     {
@@ -111,7 +111,7 @@ export function ProjectsSection() {
     },
   ];
 
-  const renderProject = (project: any, index: number) => (
+  const renderProject = (project, index: number) => (
     <div key={index} className="glass-bg glass-border rounded-lg border p-5">
       <div className="mb-3 flex items-start justify-between">
         <h3 className="text-lg font-semibold text-window-content">{project.title}</h3>

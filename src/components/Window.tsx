@@ -33,10 +33,10 @@ export function Window({ window, children }: WindowProps) {
             ? "width 0.3s ease-in-out, height 0.3s ease-in-out, transform 0.3s ease-in-out"
             : "none",
       }}
-      onDrag={(e, data) => {
+      onDrag={(data) => {
         updateWindow(window.id, { x: data.x, y: data.y });
       }}
-      onResize={(e, direction, ref, delta, position) => {
+      onResize={(ref, position) => {
         updateWindow(window.id, {
           width: parseInt(ref.style.width),
           height: parseInt(ref.style.height),
