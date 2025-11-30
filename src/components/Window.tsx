@@ -1,5 +1,5 @@
 import { type ComponentChildren } from "preact";
-import { Rnd, type DraggableData, type Position } from "react-rnd";
+import { Rnd, type Position } from "react-rnd";
 
 import { useWindowStore, type WindowData } from "../store/windowStore";
 
@@ -33,10 +33,10 @@ export function Window({ window, children }: WindowProps) {
             ? "width 0.3s ease-in-out, height 0.3s ease-in-out, transform 0.3s ease-in-out"
             : "none",
       }}
-      onDrag={(data: DraggableData) => {
+      onDragStop={(e, data) => {
         updateWindow(window.id, { x: data.x, y: data.y });
       }}
-      onResize={(ref: HTMLElement, position: Position) => {
+      onResizeStop={(e, direction, ref, delta, position: Position) => {
         updateWindow(window.id, {
           width: parseInt(ref.style.width),
           height: parseInt(ref.style.height),

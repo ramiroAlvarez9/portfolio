@@ -1,0 +1,66 @@
+{
+  "contact": {
+    "github": "https://github.com/ramiroAlvarez9",
+    "mobile": "011 2396 2123",
+    "email": "ramiro.al.alvarez@gmail.com",
+    "linkedin": "www.linkedin.com/in/ramiro-al-alvarez"
+  },
+  "name": "Ramiro Alejandro Alvarez",
+  "title": "React Front End Developer | Fullstack Developer",
+  "location": "Argentina",
+  "summary": "Full-Stack Developer | React & TypeScript Specialist | Remote. Experienced full-stack developer passionate about building scalable web applications with modern technologies. Based in Buenos Aires, Argentina, working remotely with global teams. Tech Stack: Frontend: React.js, TypeScript, Tailwind CSS Backend: Node.js, Nest js, RESTful APIs, Database Design, Exploring: Rust for experimental projects, real-time audio processing. Specialized in the React ecosystem with a focus on TypeScript development. I enjoy creating efficient, user-friendly applications that solve real-world problems. Open to remote opportunities worldwide",
+  "skills": {
+    "mainSkills": ["Node.js", "TypeScript", "Documentación"],
+    "languages": [
+      { "name": "Español", "level": "Native or Bilingual" },
+      { "name": "English", "level": "Full Professional" }
+    ]
+  },
+  "experience": [
+    {
+      "company": "Kopius, Inc.",
+      "position": "Frontend Web Developer",
+      "startDate": "july 2024",
+      "endDate": "Present",
+      "duration": "1 año 4 meses",
+      "location": "Argentina",
+      "description": [
+        "Collaborated closely with the design team to make informed decisions regarding various UI components",
+        "Worked in partnership with the backend team to define and integrate API response data structures",
+        "Delivered monthly product demos in English to showcase progress to stakeholders",
+        "Co-developed a Minimum Viable Product (MVP) as part of a cross-functional team",
+        "MVP Technologies: React, TypeScript, Styled Components, Axios, Yup",
+        "Latest Project Technologies: React, Tailwind, CSS, Zod, React Hook Form, NestJS, Node.js, MongoDB",
+        "Transitioned to Full Stack Developer role, contributing to both frontend (React) and backend (NestJS) development",
+        "Focusing on backend performance improvements and providing technical input for optimization initiatives"
+      ]
+    },
+    {
+      "company": "DigitalMeri",
+      "position": "Frontend developer",
+      "startDate": "march 2024",
+      "endDate": "june 2024",
+      "duration": "4 meses",
+      "location": "Provincia de Buenos Aires, Argentina",
+      "description": [
+        "Contributed to the development of a web application using Next.js",
+        "Leveraged modern technologies such as TypeScript and Contentful.js to enhance functionality and content management",
+        "Acted as a full-stack developer, setting up the Contentful API and integrating its data within the Next.js application"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universidad Nacional de Quilmes",
+      "degree": "Licenciatura en informática",
+      "field": "Programación informática, general",
+      "period": "2020 - 2025"
+    },
+    {
+      "institution": "Liceo Victor Mercante",
+      "degree": "Bachillerato",
+      "field": "Ciencias Sociales",
+      "period": "2007 - 2012"
+    }
+  ]
+}
