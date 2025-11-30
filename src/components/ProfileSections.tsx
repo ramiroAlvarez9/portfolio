@@ -7,7 +7,7 @@ export function AboutSection() {
 
   const summaryParts = summary.split("Tech Stack:");
   const mainSummary = summaryParts[0];
-  const techStack = {};
+  const techStack: { [key: string]: string } = {};
 
   if (summaryParts.length > 1) {
     const techString = summaryParts[1];

@@ -1,5 +1,6 @@
 import { type ComponentChildren } from "preact";
-import { Rnd, type Position } from "react-rnd";
+import { Rnd, type DraggableData, type Position, type ResizableDelta } from "react-rnd";
+import { type ResizeDirection } from "re-resizable";
 
 import { useWindowStore, type WindowData } from "../store/windowStore";
 
@@ -33,10 +34,16 @@ export function Window({ window, children }: WindowProps) {
             ? "width 0.3s ease-in-out, height 0.3s ease-in-out, transform 0.3s ease-in-out"
             : "none",
       }}
-      onDragStop={(e, data) => {
+      onDragStop={(_e: MouseEvent | TouchEvent, data: DraggableData) => {
         updateWindow(window.id, { x: data.x, y: data.y });
       }}
-      onResizeStop={(e, direction, ref, delta, position: Position) => {
+      onResizeStop={(
+        _e: MouseEvent | TouchEvent,
+        _direction: ResizeDirection,
+        ref: HTMLDivElement,
+        _delta: ResizableDelta,
+        position: Position,
+      ) => {
         updateWindow(window.id, {
           width: parseInt(ref.style.width),
           height: parseInt(ref.style.height),
