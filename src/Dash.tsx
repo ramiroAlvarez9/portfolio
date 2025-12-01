@@ -1,4 +1,4 @@
-import { User, SquareTerminal, Briefcase, Mail, Contact } from "lucide-react";
+import { User, SquareTerminal, Briefcase, Mail } from "lucide-react";
 import { useState } from "preact/hooks";
 import { clsx } from "clsx";
 
@@ -6,6 +6,7 @@ import { useWindowStore } from "./store/windowStore";
 import { About } from "./components/About";
 import { Projects } from "./components/Projects";
 import { Experience } from "./components/Experience";
+import { Contact as ContactSection } from "./components/Contact";
 
 function Dash() {
   const [, setActiveItem] = useState("about");
@@ -20,7 +21,7 @@ function Dash() {
       case "experience":
         return <Experience />;
       case "contact":
-        return <Contact />;
+        return <ContactSection />;
       default:
         return null;
     }
