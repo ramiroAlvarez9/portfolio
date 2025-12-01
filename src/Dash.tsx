@@ -1,9 +1,11 @@
-import { User, SquareTerminal, Briefcase, Mail } from "lucide-react";
+import { User, SquareTerminal, Briefcase, Mail, Contact } from "lucide-react";
 import { useState } from "preact/hooks";
 import { clsx } from "clsx";
 
 import { useWindowStore } from "./store/windowStore";
-import { AboutSection, ProjectsSection, ExperienceSection, ContactSection } from "./components/ProfileSections";
+import { About } from "./components/About";
+import { Projects } from "./components/Projects";
+import { Experience } from "./components/Experience";
 
 function Dash() {
   const [, setActiveItem] = useState("about");
@@ -12,13 +14,13 @@ function Dash() {
   const getWindowContent = (id: string) => {
     switch (id) {
       case "about":
-        return <AboutSection />;
+        return <About />;
       case "projects":
-        return <ProjectsSection />;
+        return <Projects />;
       case "experience":
-        return <ExperienceSection />;
+        return <Experience />;
       case "contact":
-        return <ContactSection />;
+        return <Contact />;
       default:
         return null;
     }
