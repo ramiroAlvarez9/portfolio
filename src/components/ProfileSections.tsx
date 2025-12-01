@@ -1,4 +1,7 @@
-import { Github, Linkedin, Mail, MapPin, Calendar, ExternalLink } from "lucide-react";
+import { Mail, MapPin, Calendar, ExternalLink } from "lucide-react";
+import { useState, useEffect } from "react";
+import { SlSocialLinkedin as LinkedIn } from "react-icons/sl";
+import { FiGithub as Github } from "react-icons/fi";
 
 import profileData from "../data/profile.json";
 
@@ -76,74 +79,79 @@ export function AboutSection() {
 }
 
 export function ProjectsSection() {
-  const personalProjects = [
+  const [pinnedProjects, setPinnedProjects] = useState<
     {
-      title: "🎵 Audio Pitch Detector",
-      description:
-        "A browser-based musical note detector that analyzes audio input in real-time to identify pitch and musical notes with accurate pitch detection algorithms.",
-      tech: ["JavaScript", "Web Audio API", "Real-time Processing"],
-      status: "Completed",
-      github: "https://github.com/ramiroAlvarez9/detect-audio-pitch",
-    },
-    {
-      title: "⚽ Soccer Players Backend",
-      description:
-        "Backend API for managing soccer player data with comprehensive scoring and statistics system, featuring scalable architecture and data validation.",
-      tech: ["TypeScript", "Node.js", "RESTful API"],
-      status: "Completed",
-      github: "https://github.com/ramiroAlvarez9/soccer-players-be",
-    },
-    {
-      title: "🔗 ShortLink Service",
-      description:
-        "Complete URL shortening service with modern React frontend and high-performance Rust backend for fast URL processing and scalable architecture.",
-      tech: ["TypeScript", "React", "Rust", "Database Integration"],
-      status: "Completed",
-      github: "https://github.com/ramiroAlvarez9/shortlink-front",
-    },
-    {
-      title: "🌐 BCN-Tec Frontend",
-      description:
-        "Modern web application frontend built with React patterns and TypeScript for enhanced type safety and component-based architecture.",
-      tech: ["TypeScript", "React.js", "Modern UI Components"],
-      status: "Completed",
-      github: "https://github.com/ramiroAlvarez9/bcn-tec-frontend",
-    },
-  ];
+      title: string;
+      description: string;
+      tech: string[];
+      github: string;
+    }[]
+  >([]);
 
-  const professionalProjects = [
-    {
-      title: "💼 Morfar - Restaurant Menu Management",
-      description:
-        "Complete menu handling solution for restaurants with integrated CMS functionality. Developed critical features for product image management and database seeding systems.",
-      tech: ["React (Remix)", "Tailwind CSS", "SQLite", "Cloudflare"],
-      status: "In Development",
-      github: "https://github.com/ramiroAlvarez9/morfar",
-    },
-    {
-      title: "🏢 FirstClose MVP & New Product",
-      description:
-        "Co-developed MVP from conception to deployment, currently building new product features with monthly stakeholder presentations and cross-functional team collaboration.",
-      tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Zod", "TanStack Query"],
-      status: "In Development",
-      github: null,
-    },
-    {
-      title: "📱 DigitalMeri Web Application",
-      description:
-        "Next.js full-stack development with focus on API integration and content management. Implemented Contentful API setup and data integration.",
-      tech: ["Next.js", "TypeScript", "Contentful CMS"],
-      status: "Completed",
-      github: null,
-    },
-  ];
+  useEffect(() => {
+    interface PinnedRepo {
+      author: string;
+      name: string;
+      description: string;
+      language: string;
+    }
+
+    const fetchPinnedRepos = async () => {
+      const cacheKey = "pinnedReposCache";
+      const cachedData = localStorage.getItem(cacheKey);
+      const now = new Date().getTime();
+      const twentyFourHours = 24 * 60 * 60 * 1000;
+
+      const processData = (data: PinnedRepo[]) => {
+        const transformed = data.map((repo) => ({
+          title: repo.name,
+          description: repo.description || "No description provided.",
+          tech: repo.language ? [repo.language] : [],
+          github: `https://github.com/${repo.author}/${repo.name}`,
+        }));
+
+        setPinnedProjects(transformed);
+      };
+
+      if (cachedData) {
+        const { timestamp, data } = JSON.parse(cachedData);
+
+        if (now - timestamp < twentyFourHours) {
+          processData(data);
+
+          return;
+        }
+      }
+
+      try {
+        const response = await fetch("https://pinned.berrysauce.dev/get/ramiroAlvarez9");
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+
+        const cachePayload = {
+          timestamp: now,
+          data: data,
+        };
+
+        localStorage.setItem(cacheKey, JSON.stringify(cachePayload));
+        processData(data);
+      } catch (error) {
+        return error;
+      }
+    };
+
+    fetchPinnedRepos();
+  }, []);
 
   const renderProject = (
     project: {
       title: string;
       description: string;
       tech: string[];
-      status: string;
+      status?: string;
       github: string | null;
     },
     index: number,
@@ -151,13 +159,15 @@ export function ProjectsSection() {
     <div key={index} className="glass-bg glass-border rounded-lg border p-5">
       <div className="mb-3 flex items-start justify-between">
         <h3 className="text-lg font-semibold text-window-content">{project.title}</h3>
-        <span
-          className={`rounded-full px-2 py-1 text-xs ${
-            project.status === "Completed" ? "bg-green-500/20 text-green-400" : "bg-blue-500/20 text-blue-400"
-          }`}
-        >
-          {project.status}
-        </span>
+        {project.status && (
+          <span
+            className={`rounded-full px-2 py-1 text-xs ${
+              project.status === "Completed" ? "bg-green-500/20 text-green-400" : "bg-blue-500/20 text-blue-400"
+            }`}
+          >
+            {project.status}
+          </span>
+        )}
       </div>
       <p className="mb-4 text-sm text-window-content opacity-75">{project.description}</p>
       <div className="mb-3 flex flex-wrap gap-2">
@@ -185,21 +195,16 @@ export function ProjectsSection() {
     <div className="p-6 text-window-content">
       <h2 className="mb-6 text-xl font-bold">Projects</h2>
 
-      <div className="mb-8">
-        <h3 className="mb-4 text-lg font-semibold text-window-content">Professional Projects</h3>
-        <div className="space-y-4">{professionalProjects.map(renderProject)}</div>
-      </div>
-
       <div>
         <h3 className="mb-4 text-lg font-semibold text-window-content">Personal Projects</h3>
-        <div className="space-y-4">{personalProjects.map(renderProject)}</div>
+        <div className="space-y-4">{pinnedProjects.map(renderProject)}</div>
       </div>
     </div>
   );
 }
 
 export function ExperienceSection() {
-  const experiences = profileData.experience; // Use data from profileData
+  const experiences = profileData.experience;
 
   return (
     <div className="p-6 text-window-content">
@@ -246,7 +251,7 @@ export function ContactSection() {
       href: `mailto:${contact.email}`,
     },
     {
-      icon: Linkedin,
+      icon: LinkedIn,
       label: "LinkedIn",
       value: contact.linkedin.replace("www.", ""),
       href: `https://${contact.linkedin}`,
