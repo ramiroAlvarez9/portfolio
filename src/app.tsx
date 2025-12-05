@@ -34,7 +34,7 @@ export function App() {
 
   return (
     <>
-      <div className="relative lg:hidden">
+      <div className="relative bg-black lg:hidden">
         <div ref={emblaRef} className="overflow-hidden">
           <div className="flex h-screen w-full">
             {menuItems.map((item, index) => (
@@ -53,11 +53,10 @@ export function App() {
             return (
               <div
                 key={window.id}
-                className={`transition-[opacity,transform] duration-300 ease-in-out ${
-                  window.isMinimized
+                className={`transition-[opacity,transform] duration-300 ease-in-out ${window.isMinimized
                     ? "pointer-events-none translate-y-full scale-0 opacity-0"
                     : "translate-y-0 scale-100 opacity-100"
-                }`}
+                  }`}
               >
                 <Window window={window}>{window.content}</Window>
               </div>

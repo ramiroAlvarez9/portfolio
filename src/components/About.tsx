@@ -31,7 +31,7 @@ export function About() {
   return (
     <div className="p-6 text-window-content">
       <div className="mb-6 flex items-center gap-4">
-        <div className="flex size-20 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-2xl font-bold">
+        <div className="hidden lg:flex lg:size-20 lg:items-center lg:justify-center lg:rounded-full lg:bg-gradient-to-br lg:from-blue-500 lg:to-purple-600 lg:text-2xl lg:font-bold">
           {name
             .split(" ")
             .map((n) => n[0])

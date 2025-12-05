@@ -39,7 +39,7 @@ export function EmblaCarouselController({ emblaApi, menuItems }: EmblaCarouselCo
   };
 
   return (
-    <nav className="glass-bg glass-border fixed top-1/2 left-1 z-[1000] flex -translate-y-1/2 flex-col gap-1 rounded-xl border p-1 shadow-2xl backdrop-blur-xl transition-all duration-300 ease-in-out">
+    <nav className="glass-bg glass-border fixed left-1 top-1/2 z-[1000] flex -translate-y-1/2 flex-col gap-1 rounded-xl border p-1 shadow-2xl backdrop-blur-xl transition-all duration-300 ease-in-out">
       {menuItems.map((item, index) => {
         const IconComponent = item.icon;
 
