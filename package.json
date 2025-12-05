@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.539.0",
     "normalize.css": "^8.0.1",
     "preact": "^10.27.0",

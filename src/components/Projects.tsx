@@ -89,8 +89,9 @@ export function Projects() {
         <h3 className="text-lg font-semibold text-window-content">{project.title}</h3>
         {project.status && (
           <span
-            className={`rounded-full px-2 py-1 text-xs ${project.status === "Completed" ? "bg-green-500/20 text-green-400" : "bg-blue-500/20 text-blue-400"
-              }`}
+            className={`rounded-full px-2 py-1 text-xs ${
+              project.status === "Completed" ? "bg-green-500/20 text-green-400" : "bg-blue-500/20 text-blue-400"
+            }`}
           >
             {project.status}
           </span>
