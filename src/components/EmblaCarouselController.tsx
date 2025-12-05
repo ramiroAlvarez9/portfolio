@@ -39,7 +39,7 @@ export function EmblaCarouselController({ emblaApi, menuItems }: EmblaCarouselCo
   };
 
   return (
-    <nav className="glass-bg glass-border fixed top-1/2 right-1 z-[1000] flex -translate-y-1/2 flex-col gap-1 rounded-xl border p-1 shadow-2xl backdrop-blur-xl transition-all duration-300 ease-in-out">
+    <nav className="glass-bg glass-border fixed top-1/2 left-1 z-[1000] flex -translate-y-1/2 flex-col gap-1 rounded-xl border p-1 shadow-2xl backdrop-blur-xl transition-all duration-300 ease-in-out">
       {menuItems.map((item, index) => {
         const IconComponent = item.icon;
 
@@ -47,14 +47,14 @@ export function EmblaCarouselController({ emblaApi, menuItems }: EmblaCarouselCo
           <button
             key={item.id}
             className={clsx(
-              "ease hover-bg relative flex size-11 cursor-pointer flex-col items-center justify-center rounded-lg border-none bg-transparent p-3 transition-all duration-200 hover:scale-110 active:scale-95",
+              "ease hover-bg relative flex size-8 cursor-pointer flex-col items-center justify-center rounded-lg border-none bg-transparent p-2 transition-all duration-200 hover:scale-110 active:scale-95",
               selectedIndex === index && "active-bg scale-105",
             )}
             title={item.label}
             type="button"
             onClick={() => scrollTo(index)}
           >
-            <IconComponent size={26} />
+            <IconComponent size={20} />
             <div
               className={clsx(
                 "ease absolute left-0 h-3 w-1 rounded-full transition-all duration-200",
