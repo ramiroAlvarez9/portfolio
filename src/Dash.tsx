@@ -67,7 +67,7 @@ function Dash() {
               }
             }}
           >
-            <IconComponent size={34} />
+            <IconComponent size={34} className="text-always-white" />
             <div
               className={clsx(
                 "ease absolute right-0 h-4 w-1 rounded-full transition-all duration-200 md:bottom-0 md:right-auto md:h-1 md:w-4",
