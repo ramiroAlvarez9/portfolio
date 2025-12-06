@@ -44,7 +44,7 @@ export function Contact() {
             return (
               <a
                 key={index}
-                className="glass-bg glass-border hover-bg flex items-center gap-4 rounded-lg border p-4 transition-all duration-200 hover:scale-105"
+                className="glass-bg glass-border flex items-center gap-4 rounded-lg border p-4 transition-all duration-200 xl:hover-bg xl:hover:scale-105"
                 href={contact.href}
                 rel="noopener noreferrer"
                 target="_blank"
