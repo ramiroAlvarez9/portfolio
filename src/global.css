@@ -38,6 +38,7 @@
   --bg-primary: hsl(0, 0%, 95%);
   --bg-secondary: hsl(0, 0%, 90%);
   --bg-tertiary: hsl(0, 0%, 85%);
+  --text-primary: hsl(0, 0%, 10%);
   --text-secondary: hsl(0, 0%, 30%);
   --window-text: hsl(0, 0%, 20%);
   --glass-bg: rgba(255, 255, 255, 0.2);
@@ -159,4 +160,8 @@ body {
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--text-secondary) transparent;
+}
+
+.text-always-white {
+  color: white !important;
 }

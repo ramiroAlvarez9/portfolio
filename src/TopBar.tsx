@@ -26,7 +26,7 @@ function TopBar() {
       </div>
 
       <div className="flex items-center justify-center xl:flex-1">
-        <span className="select-none">
+        <span className="text-always-white select-none">
           {time.toLocaleTimeString("en-US", {
             hour12: false,
             hour: "2-digit",
