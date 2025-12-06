@@ -40,7 +40,7 @@ export function EmblaCarouselController({ emblaApi, menuItems }: EmblaCarouselCo
   };
 
   return (
-    <nav className="glass-bg glass-border fixed left-4 top-1/2 z-[1000] flex -translate-y-1/2 flex-col gap-1 rounded-xl border p-1 shadow-2xl backdrop-blur-xl transition-all duration-300 ease-in-out">
+    <nav className="glass-bg glass-border fixed bottom-4 left-1/2 z-[1000] flex -translate-x-1/2 flex-row gap-1 rounded-xl border p-1 shadow-2xl backdrop-blur-xl transition-all duration-300 ease-in-out lg:left-4 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:flex-col">
       {menuItems.map((item, index) => {
         const IconComponent = item.icon;
 
@@ -58,7 +58,7 @@ export function EmblaCarouselController({ emblaApi, menuItems }: EmblaCarouselCo
             <IconComponent size={20} />
             <div
               className={clsx(
-                "ease absolute left-0 h-3 w-1 rounded-full transition-all duration-200",
+                "ease absolute bottom-1 h-1 w-1 rounded-full transition-all duration-200 lg:bottom-auto lg:left-0 lg:h-3 lg:w-1",
                 selectedIndex === index ? "indicator-bg" : "bg-transparent",
               )}
             />

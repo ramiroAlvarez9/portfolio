@@ -84,14 +84,13 @@ export function Projects() {
     },
     index: number,
   ) => (
-    <div key={index} className="glass-bg glass-border rounded-lg border p-5">
+    <div key={index} className="glass-bg p-5">
       <div className="mb-3 flex items-start justify-between">
         <h3 className="text-lg font-semibold text-window-content">{project.title}</h3>
         {project.status && (
           <span
-            className={`rounded-full px-2 py-1 text-xs ${
-              project.status === "Completed" ? "bg-green-500/20 text-green-400" : "bg-blue-500/20 text-blue-400"
-            }`}
+            className={`rounded-full px-2 py-1 text-xs ${project.status === "Completed" ? "bg-green-500/20 text-green-400" : "bg-blue-500/20 text-blue-400"
+              }`}
           >
             {project.status}
           </span>

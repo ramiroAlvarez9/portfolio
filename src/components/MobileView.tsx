@@ -25,13 +25,13 @@ export function MobileView() {
   return (
     <>
       <TopBar />
-      <div className="relative bg-[var(--window-bg)] shadow-[var(--shadow-window)] lg:hidden rounded-t-xl">
-        <div ref={emblaRef} className="overflow-hidden rounded-t-xl">
+      <div className="relative bg-[var(--window-bg)] shadow-[var(--shadow-window)] lg:hidden">
+        <div ref={emblaRef} className="overflow-hidden">
           <div className="flex h-screen w-full transition-transform duration-300 ease-out">
-            <div className="flex-[0_0_100%] overflow-auto pl-16">{menuItems[0].component}</div>
-            <div className="flex-[0_0_100%] overflow-auto pl-16">{menuItems[1].component}</div>
-            <div className="flex-[0_0_100%] overflow-auto pl-16">{menuItems[2].component}</div>
-            <div className="flex-[0_0_100%] overflow-auto pl-16">{menuItems[3].component}</div>
+            <div className="flex-[0_0_100%] overflow-auto pb-24">{menuItems[0].component}</div>
+            <div className="flex-[0_0_100%] overflow-auto pb-24">{menuItems[1].component}</div>
+            <div className="flex-[0_0_100%] overflow-auto pb-24">{menuItems[2].component}</div>
+            <div className="flex-[0_0_100%] overflow-auto pb-24">{menuItems[3].component}</div>
           </div>
         </div>
         <EmblaCarouselController emblaApi={emblaApi} menuItems={menuItems} />
