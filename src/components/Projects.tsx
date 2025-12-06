@@ -84,12 +84,12 @@ export function Projects() {
     },
     index: number,
   ) => (
-    <div key={index} className="glass-bg glass-border rounded-lg border p-5">
+    <div key={index} className="glass-bg p-5">
       <div className="mb-3 flex items-start justify-between">
         <h3 className="text-lg font-semibold text-window-content">{project.title}</h3>
         {project.status && (
           <span
-            className={`rounded-full px-2 py-1 text-xs ${project.status === "Completed" ? "bg-green-500/20 text-green-400" : "bg-blue-500/20 text-blue-400"
+            className={`rounded-full px-2 py-1 text-xs ${project.status === "Completed" ? "bg-green-500/20 text-green-600 dark:text-green-400" : "bg-blue-500/20 text-blue-600 dark:text-blue-400"
               }`}
           >
             {project.status}
@@ -99,7 +99,7 @@ export function Projects() {
       <p className="mb-4 text-sm text-window-content opacity-75">{project.description}</p>
       <div className="mb-3 flex flex-wrap gap-2">
         {project.tech.map((tech: string, techIndex: number) => (
-          <span key={techIndex} className="rounded bg-gray-700/50 px-2 py-1 text-xs text-window-content opacity-75">
+          <span key={techIndex} className="rounded bg-[var(--window-secondary)] px-2 py-1 text-xs text-window-content opacity-75">
             {tech}
           </span>
         ))}

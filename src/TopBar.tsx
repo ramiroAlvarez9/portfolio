@@ -14,8 +14,8 @@ function TopBar() {
   }, []);
 
   return (
-    <header className="glass-bg flex h-8 items-center justify-between px-4 text-sm font-medium backdrop-blur-sm transition-all duration-[800ms] ease-in-out md:text-base">
-      <div className="flex flex-1 items-center justify-start">
+    <header className="glass-bg flex h-8 items-center justify-between px-4 text-sm font-medium backdrop-blur-md shadow-sm transition-all duration-[800ms] ease-in-out md:text-base">
+      <div className="hidden xl:flex xl:flex-1 xl:items-center xl:justify-start">
         <span className="select-none">
           {time.toLocaleDateString("en-US", {
             weekday: "short",
@@ -25,8 +25,8 @@ function TopBar() {
         </span>
       </div>
 
-      <div className="flex flex-1 items-center justify-center">
-        <span className="select-none">
+      <div className="flex items-center justify-center xl:flex-1">
+        <span className="text-always-white select-none">
           {time.toLocaleTimeString("en-US", {
             hour12: false,
             hour: "2-digit",

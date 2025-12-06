@@ -31,7 +31,7 @@ export function About() {
   return (
     <div className="p-6 text-window-content">
       <div className="mb-6 flex items-center gap-4">
-        <div className="flex size-20 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-2xl font-bold">
+        <div className="hidden lg:flex lg:size-20 lg:items-center lg:justify-center lg:rounded-full lg:bg-gradient-to-br lg:from-blue-500 lg:to-purple-600 lg:text-2xl lg:font-bold">
           {name
             .split(" ")
             .map((n) => n[0])
@@ -53,7 +53,7 @@ export function About() {
 
         <div className="mt-6 space-y-4 text-window-content">
           {Object.entries(techStack).map(([key, value]) => (
-            <div key={key} className="glass-bg rounded-lg p-4">
+            <div key={key} className="glass-bg p-4">
               <h3 className="mb-2 font-semibold text-window-content">{key}</h3>
               <p className="text-sm text-window-content opacity-75">{value as string}</p>
             </div>
@@ -61,7 +61,7 @@ export function About() {
         </div>
 
         <div className="mt-6 space-y-4 text-window-content">
-          <div className="glass-bg rounded-lg p-4">
+          <div className="glass-bg p-4">
             <h3 className="mb-2 font-semibold text-window-content">Languages</h3>
             {skills.languages.map((lang) => (
               <p key={lang.name} className="text-sm text-window-content opacity-75">
