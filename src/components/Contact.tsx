@@ -44,12 +44,12 @@ export function Contact() {
             return (
               <a
                 key={index}
-                className="glass-bg glass-border hover-bg flex items-center gap-4 rounded-lg border p-4 transition-all duration-200 hover:scale-105"
+                className="glass-bg flex items-center gap-4 p-4 transition-all duration-200 xl:hover-bg xl:hover:scale-105"
                 href={contact.href}
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <div className="flex size-10 items-center justify-center rounded-lg bg-blue-500/20">
+                <div className="flex size-10 items-center justify-center bg-blue-500/20">
                   <IconComponent className="text-blue-400" size={20} />
                 </div>
                 <div>
@@ -62,13 +62,13 @@ export function Contact() {
           })}
         </div>
 
-        <div className="glass-bg glass-border mt-8 rounded-lg border p-4">
+        <div className="glass-bg mt-8 p-4">
           <h3 className="mb-3 font-semibold">Let&apos;s Connect</h3>
           <p className="mb-4 text-sm text-window-content opacity-75">
             Available for freelance projects and full-time opportunities.
           </p>
           <a
-            className="block w-full rounded-lg bg-blue-500 px-4 py-2 text-center font-medium text-window-content transition-colors hover:bg-blue-600"
+            className="block w-full bg-blue-500 px-4 py-2 text-center font-medium text-window-content transition-colors hover:bg-blue-600"
             href={`mailto:${contact.email}?subject=Contact from Portfolio&body=Hello Ramiro,%0D%0A%0D%0AI&apos;m reaching out regarding...`}
           >
             Send Message
