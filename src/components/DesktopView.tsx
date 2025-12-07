@@ -10,7 +10,7 @@ export function DesktopView() {
   return (
     <div className="hidden lg:block">
       <TopBar />
-      <div className="h-[calc(100vh-2rem)] w-full">
+      <main className="h-[calc(100vh-2rem)] w-full">
         {windows.map((window) => {
           return (
             <div
@@ -25,7 +25,7 @@ export function DesktopView() {
             </div>
           );
         })}
-      </div>
+      </main>
       <Dash />
     </div>
   );
