@@ -39,7 +39,7 @@ export function MobileView() {
             </div>
             <div className="flex-[0_0_100%] overflow-auto pb-24">
               {menuItems[2].component}
-              <div className="h-[10vh]" />
+              <div className="h-[13vh]" />
             </div>
             <div className="flex-[0_0_100%] overflow-auto pb-24">
               {menuItems[3].component}
