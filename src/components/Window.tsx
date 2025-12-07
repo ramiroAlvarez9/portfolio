@@ -53,7 +53,12 @@ export function Window({ window, children }: WindowProps) {
       }}
     >
       <div className="flex h-full flex-col">
-        <div className="gnome-titlebar flex h-10 items-center justify-between rounded-t-lg bg-[var(--window-secondary)] px-4">
+        <div
+          className="gnome-titlebar flex h-10 items-center justify-between rounded-t-lg bg-[var(--window-secondary)] px-4"
+          onDblClick={() =>
+            window.isMaximized ? restoreFromMaximize(window.id) : maximizeWindow(window.id, browserWindow)
+          }
+        >
           <div className="w-16" />
           <div className="text-sm font-medium text-[var(--window-text)]">{window.title}</div>
           <div className="flex items-center space-x-1">
