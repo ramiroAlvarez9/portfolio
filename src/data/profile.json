@@ -62,5 +62,11 @@
       "field": "Ciencias Sociales",
       "period": "2007 - 2012"
     }
+  ],
+  "projects": [
+    {
+      "title": "InCv",
+      "url": "https://incv.vercel.app/"
+    }
   ]
 }

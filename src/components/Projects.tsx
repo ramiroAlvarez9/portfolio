@@ -1,15 +1,19 @@
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Play } from "lucide-react";
 import { useState, useEffect } from "react";
 
+import * as profileData from "../data/profile.json";
+
+interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  github: string;
+  url?: string;
+  status?: string;
+}
+
 export function Projects() {
-  const [pinnedProjects, setPinnedProjects] = useState<
-    {
-      title: string;
-      description: string;
-      tech: string[];
-      github: string;
-    }[]
-  >([]);
+  const [pinnedProjects, setPinnedProjects] = useState<Project[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -28,12 +32,20 @@ export function Projects() {
       const twentyFourHours = 24 * 60 * 60 * 1000;
 
       const processData = (data: PinnedRepo[]) => {
-        const transformed = data.map((repo) => ({
-          title: repo.name,
-          description: repo.description || "No description provided.",
-          tech: repo.language ? [repo.language] : [],
-          github: `https://github.com/${repo.author}/${repo.name}`,
-        }));
+        const transformed: Project[] = data.map((repo) => {
+          const projectData = profileData.default.projects.find(
+            (p) => p.title.toLowerCase() === repo.name.toLowerCase(),
+          );
+
+          return {
+            title: repo.name,
+            description: repo.description || "No description provided.",
+            tech: repo.language ? [repo.language] : [],
+            github: `https://github.com/${repo.author}/${repo.name}`,
+            url: projectData?.url,
+            status: projectData?.status,
+          };
+        });
 
         setPinnedProjects(transformed);
       };
@@ -74,26 +86,16 @@ export function Projects() {
     fetchPinnedRepos();
   }, []);
 
-  const renderProject = (
-    project: {
-      title: string;
-      description: string;
-      tech: string[];
-      status?: string;
-      github: string | null;
-    },
-    index: number,
-  ) => (
+  const renderProject = (project: Project, index: number) => (
     <div key={index} className="glass-bg p-5">
       <div className="mb-3 flex items-start justify-between">
         <h3 className="text-lg font-semibold text-window-content">{project.title}</h3>
         {project.status && (
           <span
-            className={`rounded-full px-2 py-1 text-xs ${
-              project.status === "Completed"
+            className={`rounded-full px-2 py-1 text-xs ${project.status === "Completed"
                 ? "bg-green-500/20 text-green-600 dark:text-green-400"
                 : "bg-blue-500/20 text-blue-600 dark:text-blue-400"
-            }`}
+              }`}
           >
             {project.status}
           </span>
@@ -110,17 +112,35 @@ export function Projects() {
           </span>
         ))}
       </div>
-      {project.github && (
-        <a
-          className="flex items-center gap-2 text-sm text-window-content opacity-80 transition-all hover:opacity-100"
-          href={project.github}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <ExternalLink size={14} />
-          View on GitHub
-        </a>
-      )}
+      <div className="flex items-center gap-4">
+        {project.github && (
+          <a
+            className="flex items-center gap-2 text-sm text-window-content opacity-80 transition-all hover:opacity-100"
+            href={project.github}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <ExternalLink size={14} />
+            View on GitHub
+          </a>
+        )}
+        {project.url ? (
+          <a
+            className="flex items-center gap-2 text-sm text-window-content opacity-80 transition-all hover:opacity-100"
+            href={project.url}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Play size={14} />
+            Try it Online
+          </a>
+        ) : (
+          <span className="flex cursor-not-allowed items-center gap-2 text-sm text-window-content opacity-50">
+            <Play size={14} />
+            In Progress
+          </span>
+        )}
+      </div>
     </div>
   );
 
