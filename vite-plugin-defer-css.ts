@@ -1,8 +1,8 @@
-import type { Plugin } from 'vite';
+import type { Plugin } from "vite";
 
 export function deferCssPlugin(): Plugin {
   return {
-    name: 'defer-css',
+    name: "defer-css",
     transformIndexHtml(html: string): string {
       const cssLinkRegex = /<link rel="stylesheet"(.*?)href="([^"]+\.css)"(.*?)>/;
       const match = html.match(cssLinkRegex);

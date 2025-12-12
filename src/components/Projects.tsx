@@ -33,8 +33,8 @@ export function Projects() {
 
       const processData = (data: PinnedRepo[]) => {
         const transformed: Project[] = data.map((repo) => {
-          const projectData = profileData.default.projects.find(
-            (p) => p.title.toLowerCase() === repo.name.toLowerCase(),
+          const projectData = profileData.projects.find(
+            (p: { title: string; url?: string; status?: string }) => p.title.toLowerCase() === repo.name.toLowerCase(),
           );
 
           return {
@@ -92,10 +92,11 @@ export function Projects() {
         <h3 className="text-lg font-semibold text-window-content">{project.title}</h3>
         {project.status && (
           <span
-            className={`rounded-full px-2 py-1 text-xs ${project.status === "Completed"
+            className={`rounded-full px-2 py-1 text-xs ${
+              project.status === "Completed"
                 ? "bg-green-500/20 text-green-600 dark:text-green-400"
                 : "bg-blue-500/20 text-blue-600 dark:text-blue-400"
-              }`}
+            }`}
           >
             {project.status}
           </span>
